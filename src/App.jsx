@@ -22,6 +22,8 @@ import Image19 from "./assets/19.jpg";
 import Image20 from "./assets/20.jpg";
 import Exit from "./assets/exit.png";
 import { FaBars } from "react-icons/fa6";
+import { IoIosHeart } from "react-icons/io";
+import { IoIosHeartEmpty } from "react-icons/io";
 import Book from "./Book";
 
 function App() {
@@ -224,6 +226,7 @@ function App() {
   const openModal = (book) => {
     setModalBook(book);
   };
+  const [heart, setHeart] = useState(false);
 
   return (
     <>
@@ -340,6 +343,25 @@ function App() {
             >
               <img src={Exit} alt="exit" className="w-10" />
             </button>
+            {heart == false ? (
+              <button
+                onClick={() => {
+                  setHeart(true);
+                }}
+                className="absolute bottom-7 text-5xl right-7 cursor-pointer hover:bg-black/70 hover:shadow-[0_0_10px_lime] p-2 rounded-2xl transition-all duration-300 ease-in-out active:scale-95"
+              >
+                <IoIosHeartEmpty />
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  setHeart(false);
+                }}
+                className="absolute bottom-7 text-5xl right-7 cursor-pointer hover:bg-black/70 hover:shadow-[0_0_10px_lime] p-2 rounded-2xl transition-all duration-300 ease-in-out active:scale-95"
+              >
+                <IoIosHeart />
+              </button>
+            )}
           </div>
         </div>
       )}
