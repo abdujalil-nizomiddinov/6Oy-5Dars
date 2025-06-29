@@ -298,12 +298,12 @@ function App() {
           />
         </div>
       </header>
-      <main className="mt-12 relative">
-        <h2 className="text-[lime] text-2xl font-[900] ml-10">
+      <main className="mt-12 relative min-h-100 flex flex-col items-center justify-center">
+        <h2 className="text-[lime] text-2xl font-[900] ml-10 absolute top-0 left-0">
           Books:[{booksCount}]
         </h2>
         {booksCount == 0 ? (
-          <h2 className="absolute text-[lime] text-3xl left-[50%] translate-x-[-50%]">
+          <h2 className="text-center text-[lime] text-3xl max-[1350px]:text-2xl max-[1080px]:text-xl max-[900px]:text-lg max-[800px]:text-sm mx-8">
             Kechirasiz bizda hozir kitoblar soni {booksCount}ga teng.
           </h2>
         ) : (
@@ -383,7 +383,7 @@ function App() {
           target="_blank"
           className="outline-none"
         >
-          <span className="text-lg max-[500px]:text-center text-[lime] hover:text-yellow-400 transition-all duration-100 ease-out hover:duration-200 hover:ease-in px-4 py-2 hover:shadow-[inset_0_0_10px_yellow] rounded-[25%] bg-transparent">
+          <span className="text-lg max-[500px]:text-center text-[lime] hover:text-yellow-400 transition-all duration-100 ease-out hover:duration-200 hover:ease-in px-4 py-2 hover:shadow-[inset_0_0_10px_yellow] rounded-[25%] bg-transparent max-[400px]:text-sm">
             &copy; Powered by Abdujalil Nizomiddinov (Devixo coder)
           </span>
         </a>
