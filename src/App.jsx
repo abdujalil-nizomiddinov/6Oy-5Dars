@@ -23,6 +23,7 @@ import Image20 from "./assets/20.jpg";
 import Exit from "./assets/exit.png";
 import { FaBars } from "react-icons/fa6";
 import { IoIosHeart } from "react-icons/io";
+import { FaTrashCan } from "react-icons/fa6";
 import { IoIosHeartEmpty } from "react-icons/io";
 import Book from "./Book";
 
@@ -299,15 +300,28 @@ function App() {
         </div>
       </header>
       <main className="mt-12 relative min-h-100 flex flex-col items-center justify-center">
-        <h2 className="text-[lime] text-2xl font-[900] ml-10 absolute top-0 left-0">
-          Books:[{booksCount}]
-        </h2>
+        <div className="text-[lime] text-2xl font-[900] ml-10 absolute top-0 left-0 flex items-center justify-center mb-4 max-[350px]:flex-col max-[350px]:items-start">
+          <h2 className="text-[lime] cursor-pointer select-none transition-all duration-100 ease-out hover:duration-200 hover:ease-in px-4 py-2 hover:shadow-[inset_0_0_10px_lime] rounded-[25%]">
+            Books:[{booksCount}]
+          </h2>
+          <button
+            onClick={() => {
+              setBooks([]);
+              setBooksCount(0);
+            }}
+            className="flex select-none items-center justify-center gap-2 cursor-pointer text-[lime] transition-all duration-100 ease-out hover:duration-200 hover:ease-in px-4 py-2 hover:shadow-[inset_0_0_10px_lime] rounded-[25%] focus-visible:shadow-[inset_0_0_10px_yellow] focus-visible:text-yellow-500 focus-visible:outline-none active:scale-98"
+          >
+            <span className="[word-spacing:-4px]">Clear books</span>
+
+            <FaTrashCan />
+          </button>
+        </div>
         {booksCount == 0 ? (
           <h2 className="text-center text-[lime] text-3xl max-[1350px]:text-2xl max-[1080px]:text-xl max-[900px]:text-lg max-[800px]:text-sm mx-8">
             Kechirasiz bizda hozir kitoblar soni {booksCount}ga teng.
           </h2>
         ) : (
-          <ul className="grid grid-cols-5 max-[1400px]:grid-cols-4 max-[1000px]:grid-cols-3 max-[800px]:grid-cols-2 max-[600px]:grid-cols-1 mx-30 max-[1000px]:mx-10 my-10 gap-5 max-[350px]:mx-5">
+          <ul className="mt-16 max-[350px]:mt-30 w-full h-full px-10 grid grid-cols-5 max-[1400px]:grid-cols-4 max-[1000px]:grid-cols-3 max-[800px]:grid-cols-2 max-[600px]:grid-cols-1 mx-30 max-[1000px]:mx-10 my-10 gap-5 max-[350px]:mx-5">
             {books.map((book) => {
               return (
                 <Book
@@ -350,7 +364,7 @@ function App() {
             />
             <button
               onClick={() => setModalBook(null)}
-              className="absolute top-4 right-4 cursor-pointer hover:bg-black/0 hover:shadow-[0_0_10px_lime] p-4 rounded-2xl transition-all duration-300 ease-in-out active:scale-95"
+              className="absolute top-4 right-4 cursor-pointer hover:bg-black/0 hover:shadow-[0_0_10px_lime] focus-visible:shadow-[0_0_10px_lime] outline-none p-4 rounded-2xl transition-all duration-300 ease-in-out active:scale-95"
             >
               <img src={Exit} alt="exit" className="w-10" />
             </button>
@@ -359,7 +373,7 @@ function App() {
                 onClick={() => {
                   setHeart(true);
                 }}
-                className="absolute bottom-7 text-5xl right-7 cursor-pointer hover:bg-black/70 hover:shadow-[0_0_10px_lime] p-2 rounded-2xl transition-all duration-300 ease-in-out active:scale-95"
+                className="absolute bottom-7 text-5xl right-7 cursor-pointer focus-visible:shadow-[0_0_10px_lime] outline-none hover:bg-black/70 focus-visible:bg-black/70 hover:shadow-[0_0_10px_lime] p-2 rounded-2xl transition-all duration-300 ease-in-out active:scale-95"
               >
                 <IoIosHeartEmpty />
               </button>
@@ -368,7 +382,7 @@ function App() {
                 onClick={() => {
                   setHeart(false);
                 }}
-                className="absolute bottom-7 text-5xl right-7 cursor-pointer hover:bg-black/70 hover:shadow-[0_0_10px_lime] p-2 rounded-2xl transition-all duration-300 ease-in-out active:scale-95"
+                className="absolute bottom-7 text-5xl right-7 cursor-pointer focus-visible:shadow-[0_0_10px_lime] outline-none hover:bg-black/70 focus-visible:bg-black/70 hover:shadow-[0_0_10px_lime] p-2 rounded-2xl transition-all duration-300 ease-in-out active:scale-95"
               >
                 <IoIosHeart />
               </button>
