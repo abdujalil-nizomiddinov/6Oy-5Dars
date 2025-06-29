@@ -220,6 +220,7 @@ function App() {
       return book.id !== id;
     });
     setBooks(filteredBook);
+    setBooksCount(filteredBook.length);
     alert(`The book with ID ${id} was successfully removed`);
   };
   const [modalBook, setModalBook] = useState(null);
@@ -227,6 +228,7 @@ function App() {
     setModalBook(book);
   };
   const [heart, setHeart] = useState(false);
+  const [booksCount, setBooksCount] = useState(books.length);
 
   return (
     <>
@@ -296,19 +298,28 @@ function App() {
           />
         </div>
       </header>
-      <main>
-        <ul className="grid grid-cols-5 max-[1400px]:grid-cols-4 max-[1000px]:grid-cols-3 max-[800px]:grid-cols-2 max-[600px]:grid-cols-1 mx-30 max-[1000px]:mx-10 my-10 gap-5 max-[350px]:mx-5">
-          {books.map((book) => {
-            return (
-              <Book
-                book={book}
-                removeBooks={removeBooks}
-                openModal={openModal}
-                key={book.id}
-              ></Book>
-            );
-          })}
-        </ul>
+      <main className="mt-12 relative">
+        <h2 className="text-[lime] text-2xl font-[900] ml-10">
+          Books:[{booksCount}]
+        </h2>
+        {booksCount == 0 ? (
+          <h2 className="absolute text-[lime] text-3xl left-[50%] translate-x-[-50%]">
+            Kechirasiz bizda hozir kitoblar soni {booksCount}ga teng.
+          </h2>
+        ) : (
+          <ul className="grid grid-cols-5 max-[1400px]:grid-cols-4 max-[1000px]:grid-cols-3 max-[800px]:grid-cols-2 max-[600px]:grid-cols-1 mx-30 max-[1000px]:mx-10 my-10 gap-5 max-[350px]:mx-5">
+            {books.map((book) => {
+              return (
+                <Book
+                  book={book}
+                  removeBooks={removeBooks}
+                  openModal={openModal}
+                  key={book.id}
+                ></Book>
+              );
+            })}
+          </ul>
+        )}
       </main>
 
       {modalBook && (
