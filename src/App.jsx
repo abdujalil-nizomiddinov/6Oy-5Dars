@@ -300,21 +300,25 @@ function App() {
         </div>
       </header>
       <main className="mt-12 relative min-h-100 flex flex-col items-center justify-center">
-        <div className="text-[lime] text-2xl font-[900] ml-10 absolute top-0 left-0 flex items-center justify-center mb-4 max-[350px]:flex-col max-[350px]:items-start">
+        <div className="text-[lime] text-2xl font-[900] ml-10 absolute top-0 left-0 flex items-center justify-center mb-4 max-[380px]:flex-col max-[350px]:items-start">
           <h2 className="text-[lime] cursor-pointer select-none transition-all duration-100 ease-out hover:duration-200 hover:ease-in px-4 py-2 hover:shadow-[inset_0_0_10px_lime] rounded-[25%]">
             Books:[{booksCount}]
           </h2>
-          <button
-            onClick={() => {
-              setBooks([]);
-              setBooksCount(0);
-            }}
-            className="flex select-none items-center justify-center gap-2 cursor-pointer text-[lime] transition-all duration-100 ease-out hover:duration-200 hover:ease-in px-4 py-2 hover:shadow-[inset_0_0_10px_lime] rounded-[25%] focus-visible:shadow-[inset_0_0_10px_yellow] focus-visible:text-yellow-500 focus-visible:outline-none active:scale-98"
-          >
-            <span className="[word-spacing:-4px]">Clear books</span>
+          {booksCount > 0 ? (
+            <button
+              onClick={() => {
+                setBooks([]);
+                setBooksCount(0);
+              }}
+              className="flex select-none items-center justify-center gap-2 cursor-pointer text-[lime] transition-all duration-100 ease-out hover:duration-200 hover:ease-in px-4 py-2 hover:shadow-[inset_0_0_10px_lime] rounded-[25%] focus-visible:shadow-[inset_0_0_10px_yellow] focus-visible:text-yellow-500 focus-visible:outline-none active:scale-98"
+            >
+              <span className="[word-spacing:-4px]">Clear books</span>
 
-            <FaTrashCan />
-          </button>
+              <FaTrashCan />
+            </button>
+          ) : (
+            <></>
+          )}
         </div>
         {booksCount == 0 ? (
           <h2 className="text-center text-[lime] text-3xl max-[1350px]:text-2xl max-[1080px]:text-xl max-[900px]:text-lg max-[800px]:text-sm mx-8">
