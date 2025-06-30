@@ -300,7 +300,7 @@ function App() {
         </div>
       </header>
       <main className="mt-12 relative min-h-100 flex flex-col items-center justify-center">
-        <div className="text-[lime] text-2xl font-[900] ml-10 absolute top-0 left-0 flex items-center justify-center mb-4 max-[380px]:flex-col max-[350px]:items-start">
+        <div className="text-[lime] text-2xl font-[900] ml-10 absolute top-0 left-0 flex items-center justify-center mb-4 max-[380px]:flex-col max-[380px]:items-start">
           <h2 className="text-[lime] cursor-pointer select-none transition-all duration-100 ease-out hover:duration-200 hover:ease-in px-4 py-2 hover:shadow-[inset_0_0_10px_lime] rounded-[25%]">
             Books:[{booksCount}]
           </h2>
@@ -325,7 +325,7 @@ function App() {
             Kechirasiz bizda hozir kitoblar soni {booksCount}ga teng.
           </h2>
         ) : (
-          <ul className="mt-16 max-[350px]:mt-30 w-full h-full px-10 grid grid-cols-5 max-[1400px]:grid-cols-4 max-[1000px]:grid-cols-3 max-[800px]:grid-cols-2 max-[600px]:grid-cols-1 mx-30 max-[1000px]:mx-10 my-10 gap-5 max-[350px]:mx-5">
+          <ul className="mt-16 max-[380px]:mt-30 w-full h-full px-10 grid grid-cols-5 max-[1400px]:grid-cols-4 max-[1000px]:grid-cols-3 max-[800px]:grid-cols-2 max-[600px]:grid-cols-1 mx-30 max-[1000px]:mx-10 my-10 gap-5 max-[380px]:mx-5">
             {books.map((book) => {
               return (
                 <Book
